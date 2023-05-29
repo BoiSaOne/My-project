@@ -1,0 +1,192 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+.container {
+  max-width: 1200px;
+  margin-right: auto;
+  margin-left: auto;
+  padding-right: 15px;
+  padding-left: 15px;
+  width: 100%;
+  margin-top: 60px;
+  padding: 60px;
+}
+body {
+  font-family: "Arial", sans-serif;
+  height: calc(100vh);
+  background-image: url(https://www.prosoft.studio/assets/images/back-main.jpg);
+  background-position: center;
+  background-size: cover;
+}
+.content {
+  font-size: 14px;
+  line-height: 1.7857;
+  color: #888;
+  max-width: 860px;
+  width: 100%;
+}
+.content-one p {
+  text-indent: 1.5em;
+}
+.wrapper {
+  display: flex;
+  width: 100%;
+}
+.img img {
+  width: 220px;
+  height: 200px;
+}
+.how {
+  position: relative;
+  z-index: 1;
+}
+.how::before {
+  bottom: -50px;
+  left: -40px;
+  content: "";
+  display: block;
+  position: absolute;
+  z-index: -1;
+  width: 100%;
+  height: 100%;
+  border: 3px solid #ccc;
+}
+.how2 {
+  display: block;
+  overflow: hidden;
+  text-align: center;
+}
+.content-two {
+  margin: 0 0 0 200px !important;
+}
+.wrapper-two {
+  margin-top: 30px;
+}
+.content-two form {
+  border: 2px solid #ccc;
+  padding: 70px;
+}
+.date-input {
+  width: 96%;
+  height: 50px;
+  margin-bottom: 15px;
+  padding-left: 15px;
+}
+.check {
+  height: 20px;
+  width: 20px;
+  cursor: pointer;
+  margin-right: 15px;
+}
+.wrapper-check {
+  display: flex;
+  align-items: center;
+}
+.wrapper-check label {
+  cursor: pointer;
+}
+.date-select {
+  width: 100%;
+  height: 40px;
+  font-size: 16px;
+  cursor: pointer;
+  padding: 0 5px;
+}
+textarea {
+  width: 96%;
+  height: 150px;
+  padding: 10px;
+  font-size: 18px;
+  resize: none;
+}
+.submit {
+  height: 45px;
+  width: 200px;
+  border: none;
+  cursor: pointer;
+  float: right;
+}
+.how-margin {
+  margin-top: 80px;
+}
+.how::before {
+  bottom: -50px;
+  left: -40px;
+  content: "";
+  display: block;
+  position: absolute;
+  z-index: -1;
+  width: 100%;
+  height: 100%;
+  border: 3px solid #ccc;
+  background: #fff;
+}
+.content-two form {
+  border: 2px solid #ccc;
+  padding: 70px;
+  background: #fff;
+}
+footer {
+  background: #000;
+  color: #fff;
+  padding: 30px;
+  margin-top: 30px;
+  text-align: center;
+}
+h1 {
+  margin-bottom: 60px;
+  font-size: 42px;
+}
+h2 {
+  margin-top: 30px;
+  font-size: 24px;
+}
+.img {
+  padding-left: 10%;
+}
+a {
+  float: right;
+  margin-top: 15px;
+  color: #000;
+  text-decoration: none;
+  font-size: 18px;
+}
+a:hover {
+  color: #5d299d;
+}
+p {
+  text-align: justify;
+}
+@media (max-width: 1200px) {
+  .img {
+    padding-right: 10%;
+  }
+  .wrapper-two {
+    flex-direction: column;
+  }
+  .help-mobile {
+    display: none;
+  }
+  .content-two {
+    margin: 0 !important;
+  }
+  .container {
+    width: auto;
+  }
+  .content-two form {
+    padding: 30px;
+    padding-bottom: 60px;
+  }
+}
+@media (max-width: 1200px) {
+  .wrapper {
+    flex-direction: column;
+  }
+  h2 {
+    margin-top: 70px;
+  }
+  .how2 {
+    margin-top: 30px;
+  }
+}

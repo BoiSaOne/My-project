@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, user-scalable=no, initial-scale=1.0, 
+      maximum-scale=1.0, minimum-scale=1.0"
+    />
+    <link rel="stylesheet" type="text/css" href="css/style.css" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>C#</title>
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <h1 class="header">Язык C#</h1>
+      </header>
+      <main>
+        <div class="wrapper">
+          <div class="content content-one">
+            <p>
+              <strong>C#</strong> (произносится как "си шарп") — современный
+              <strong>объектно-ориентированный</strong> и типобезопасный язык
+              программирования. C# позволяет разработчикам создавать разные типы
+              безопасных и надежных приложений, выполняющихся в .NET. C#
+              относится к широко известному семейству языков C, и покажется
+              хорошо знакомым любому, кто работал с C, C++, Java или JavaScript.
+              C# — объектно-ориентированный, ориентированный на компоненты язык
+              программирования. C# предоставляет языковые конструкции для
+              непосредственной поддержки такой концепции работы. Благодаря этому
+              C# подходит для создания и применения программных компонентов.
+            </p>
+            <p>
+              C# уже не молодой язык и как и вся платформа .NET уже прошел
+              большой путь. Первая версия языка вышла вместе с релизом Microsoft
+              Visual Studio .NET в феврале 2002 года. Текущей версией языка
+              является версия C# 11, которая вышла 8 ноября 2022 года вместе с
+              релизом .NET 7. Стоит отметить, что .NET долгое время развивался
+              премущественно как платформа для Windows под названием .NET
+              Framework. В 2019 вышла последняя версия этой платформы - .NET
+              Framework 4.8. С 2014 Microsoft стал развивать альтернативную
+              платформу - .NET Core, которая уже предназначалась для разных
+              платформ.
+            </p>
+            <a
+              href="https://learn.microsoft.com/ru-ru/dotnet/csharp/"
+              target="_blank"
+              >Подробней....
+            </a>
+          </div>
+          <div class="img">
+            <div class="how">
+              <div class="how2">
+                <img src="images/csharp.png" alt="C#" />
+              </div>
+            </div>
+          </div>
+        </div>
+        <h2>Мини-опрос!</h2>
+        <div class="wrapper wrapper-two">
+          <div class="img help-mobile">
+            <div class="how how-margin">
+              <div class="how2">
+                <img src="images/csharp.png" alt="C#" />
+              </div>
+            </div>
+            <div class="how how-margin">
+              <div class="how2">
+                <img src="images/csharp.png" alt="C#" />
+              </div>
+            </div>
+          </div>
+          <div class="content content-two">
+            <form method="post" action="http://localhost:8080/select">
+              <p>
+                <input
+                  type="text"
+                  class="date-input"
+                  name="userName"
+                  placeholder="Ваше имя:"
+                  minlength="6"
+                  maxlength="40"
+                  required
+                />
+              </p>
+              <p>
+                <input
+                  type="email"
+                  class="date-input"
+                  name="email"
+                  placeholder="Адрес эл. почты:"
+                  maxlength="60"
+                  required
+                />
+              </p>
+              <label>Выберите парадигмы ООП?</label><br />
+              <p class="wrapper-check">
+                <input
+                  type="checkbox"
+                  class="check"
+                  checked
+                  name="Inheritance"
+                  id="Inheritance"
+                />
+                <label for="Inheritance">Наследование</label>
+              </p>
+              <p class="wrapper-check">
+                <input
+                  type="checkbox"
+                  class="check"
+                  name="polymorphism"
+                  id="polymorphism"
+                />
+                <label for="polymorphism">Полиморфизм</label>
+              </p>
+              <p class="wrapper-check">
+                <input
+                  type="checkbox"
+                  class="check"
+                  name="dependencyInjection"
+                  id="dependencyInjection"
+                />
+                <label for="dependencyInjection">Внедрение зависимостей</label>
+              </p>
+              <p class="wrapper-check">
+                <input
+                  type="checkbox"
+                  class="check"
+                  name="encapsulation"
+                  id="encapsulation"
+                />
+                <label for="encapsulation">Инкапсуляция</label>
+              </p>
+              <label>C# компилируемый язык?</label><br />
+              <p class="wrapper-check">
+                <input
+                  type="radio"
+                  class="check"
+                  value="yes"
+                  name="radio"
+                  id="yes"
+                />
+                <label for="yes">Да</label>
+              </p>
+              <p class="wrapper-check">
+                <input
+                  type="radio"
+                  class="check"
+                  value="no"
+                  name="radio"
+                  id="no"
+                  checked
+                />
+                <label for="no">Нет</label>
+              </p>
+              <label>Вам понравился мини-опрос?</label><br />
+              <select id="select" name="select" class="date-select">
+                <option value="ofCourse">Конечно</option>
+                <option value="yes">Да</option>
+                <option value="no">Нет</option>
+              </select>
+              <p>
+                <label>Комментарий</label><br />
+                <textarea></textarea>
+              </p>
+              <p>
+                <button type="submit" class="submit">Отправить</button>
+              </p>
+            </form>
+          </div>
+        </div>
+      </main>
+    </div>
+    <footer>
+      <p>© Бойков Александр 2023</p>
+    </footer>
+  </body>
+</html>
