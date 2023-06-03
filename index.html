@@ -57,55 +57,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="content content-two">
-                        <form method="post" action="http://localhost:8080/select">
-                            <p>
-                                <input type="text" class="date-input" name="userName" placeholder="Ваше имя:" minlength="6" maxlength="40" required />
-                            </p>
-                            <p>
-                                <input type="email" class="date-input" name="email" placeholder="Адрес эл. почты:" maxlength="60" required />
-                            </p>
-                            <label>Выберите парадигмы ООП?</label><br />
-                            <p class="wrapper-check">
-                                <input type="checkbox" class="check" checked name="Inheritance" id="Inheritance" />
-                                <label for="Inheritance">Наследование</label>
-                            </p>
-                            <p class="wrapper-check">
-                                <input type="checkbox" class="check" name="polymorphism" id="polymorphism" />
-                                <label for="polymorphism">Полиморфизм</label>
-                            </p>
-                            <p class="wrapper-check">
-                                <input type="checkbox" class="check" name="dependencyInjection" id="dependencyInjection" />
-                                <label for="dependencyInjection">Внедрение зависимостей</label>
-                            </p>
-                            <p class="wrapper-check">
-                                <input type="checkbox" class="check" name="encapsulation" id="encapsulation" />
-                                <label for="encapsulation">Инкапсуляция</label>
-                            </p>
-                            <label>C# компилируемый язык?</label><br />
-                            <p class="wrapper-check">
-                                <input type="radio" class="check" value="yes" name="radio" id="yes" />
-                                <label for="yes">Да</label>
-                            </p>
-                            <p class="wrapper-check">
-                                <input type="radio" class="check" value="no" name="radio" id="no" checked />
-                                <label for="no">Нет</label>
-                            </p>
-                            <label>Вам понравился мини-опрос?</label><br />
-                            <select id="select" name="select" class="date-select">
-                                <option value="ofCourse">Конечно</option>
-                                <option value="yes">Да</option>
-                                <option value="no">Нет</option>
-                            </select>
-                            <p>
-                                <label>Комментарий</label><br />
-                                <textarea></textarea>
-                            </p>
-                            <p>
-                                <button type="submit" class="submit">Отправить</button>
-                            </p>
-                        </form>
-                    </div>
+                    <div class="content content-two" id="root"></div>
                 </div>
 
                 <div class="wrapper wrapper-two">
@@ -129,6 +81,152 @@
         <footer>
             <p>© Бойков Александр 2023</p>
         </footer>
+        <script crossorigin src="https://unpkg.com/react@16/umd/react.production.min.js"></script>
+        <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.25.0/babel.min.js"></script>
         <script src="scripts/script.js"></script>
+
+        <script type="text/babel">
+            class FormComponent extends React.Component {
+                constructor(props) {
+                    super(props);
+
+                    this.state = {
+                        valueUserName: "",
+                        valueEmail: "",
+                        userNameChanged: false,
+                        emailChanged: false,
+                        selectAnswer: "ofCourse",
+                    };
+
+                    this.handleChangeValueUserName = this.handleChangeValueUserName.bind(this);
+                    this.handleChangeValueEmail = this.handleChangeValueEmail.bind(this);
+                    this.handleChangeSelect = this.handleChangeSelect.bind(this);
+                    this.handleSubmit = this.handleSubmit.bind(this);
+                }
+
+                handleSubmit(event) {
+                    if (this.state.userNameChanged) {
+                        this.state.userNameChanged = false;
+                        alert("Ваше имя: " + this.state.valueUserName);
+                    }
+                    if (this.state.emailChanged) {
+                        this.state.emailChanged = false;
+                        alert("Ваш адрес эл. почты: " + this.state.valueEmail);
+                    }
+                    this.props.data.checkboxs.map((checkbox) => {
+                        if (document.getElementById(checkbox.id).checked) {
+                            alert(`Вы выбрали: ${checkbox.name}`);
+                        }
+                    });
+                    this.props.data.radioInputs.map((radioInput) => {
+                        if (document.getElementById(radioInput.id).checked) {
+                            alert(`Вы выбрали: ${radioInput.name}`);
+                        }
+                    });
+                    alert("Вы выбрали: " + this.state.selectAnswer);
+                    event.preventDefault();
+                }
+
+                handleChangeValueUserName(event) {
+                    this.state.userNameChanged = true;
+                    this.setState({ valueUserName: event.target.value });
+                }
+
+                handleChangeValueEmail(event) {
+                    this.state.emailChanged = true;
+                    this.setState({ valueEmail: event.target.value });
+                }
+
+                handleChangeSelect(event) {
+                    this.setState({ selectAnswer: event.target.value });
+                }
+
+                render() {
+                    return (
+                        <div className="managed">
+                            <form onSubmit={this.handleSubmit}>
+                                <p>
+                                    <input
+                                        type="text"
+                                        class="date-input"
+                                        name="userName"
+                                        placeholder="Ваше имя:"
+                                        minlength="6"
+                                        maxlength="40"
+                                        required
+                                        onChange={this.handleChangeValueUserName}
+                                        value={this.state.valueUserName}
+                                    />
+                                </p>
+                                <p>
+                                    <input
+                                        type="email"
+                                        class="date-input"
+                                        name="email"
+                                        placeholder="Адрес эл. почты:"
+                                        maxlength="60"
+                                        required
+                                        onChange={this.handleChangeValueEmail}
+                                        value={this.state.valueEmail}
+                                    />
+                                </p>
+
+                                <label>Выберите парадигмы ООП?</label>
+                                <br />
+                                {this.props.data.checkboxs.map((checkbox) => (
+                                    <p key={checkbox.id} class="wrapper-check">
+                                        <input type="checkbox" class="check" name={checkbox.id} id={checkbox.id} />
+                                        <label for={checkbox.id}>{checkbox.name}</label>
+                                    </p>
+                                ))}
+
+                                <label>C# компилируемый язык?</label>
+                                <br />
+                                {this.props.data.radioInputs.map((radioInput) => (
+                                    <p key={radioInput.id} class="wrapper-check">
+                                        <input type="radio" class="check" value={radioInput.id} name="radio" id={radioInput.id} />
+                                        <label for={radioInput.id}>{radioInput.name}</label>
+                                    </p>
+                                ))}
+
+                                <label>Вам понравился мини-опрос?</label>
+                                <br />
+                                <select value={this.state.value} onChange={this.handleChangeSelect}>
+                                    {this.props.data.selectOptions.map((option) => (
+                                        <option key={option.id} value={option.id}>
+                                            {option.name}
+                                        </option>
+                                    ))}
+                                </select>
+
+                                <button type="submit" class="submit">
+                                    Отправить
+                                </button>
+                            </form>
+                        </div>
+                    );
+                }
+            }
+
+            const data = {
+                checkboxs: [
+                    { id: "inheritance", name: "Наследование" },
+                    { id: "polymorphism", name: "Полиморфизм" },
+                    { id: "dependencyInjection", name: "Внедрение зависимостей" },
+                    { id: "encapsulation", name: "Инкапсуляция" },
+                ],
+                radioInputs: [
+                    { id: "yes", name: "Да" },
+                    { id: "no", name: "Нет" },
+                ],
+                selectOptions: [
+                    { id: "ofCourse", name: "Конечно" },
+                    { id: "yes", name: "Да" },
+                    { id: "no", name: "Нет" },
+                ],
+            };
+            ReactDOM.render(<FormComponent data={data} />, document.getElementById("root"));
+        </script>
     </body>
 </html>
